@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>9.阴影和渐变</title>
+    <style>
+        canvas {
+    border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+    <canvas id="drawing" width="400" height="400">a drawing of something</canvas>
+
+    <script>
+        //获取canvas对象
+        var drawing = document.getElementById('drawing')
+        //检查getContext方法是否存在
+        if(!drawing.getContext){};
+
+        //2D上下文
+        var ctx = drawing.getContext("2d")
+        
+
+        //阴影
+        // shadowColor:用css颜色格式表示的阴影颜色，默认黑色
+        // shadowOffsetX:形状或路径x轴方向的阴影偏移量，默认为0
+        // shadowOffsetY:形状或路径y轴方向的阴影偏移量，默认为0
+        // shadowBlur:模糊的像素数，默认为0，不模糊
+
+        // ctx.shadowColor = "rgba(0,0,0,0.5)";
+        // ctx.shadowOffsetX = 5;
+        // ctx.shadowOffsetY = 5;
+        // ctx.shadowBlur = 4;
+
+        // ctx.fillStyle = "blue";
+        // ctx.fillRect(0, 0, 200, 200);
+        // ctx.fillStyle = "red";
+        // ctx.fillRect(100, 100, 200, 200);
+
+
+
+        //渐变
+        //线性渐变 createLinearGradient(x1,y1,x2,y2)
+        // var gradient = ctx.createLinearGradient(0,0,200,200);
+        // gradient.addColorStop(0,'white')
+        // gradient.addColorStop(1,'blue')
+
+        // ctx.fillStyle = gradient;
+        // ctx.fillRect(0, 0, 200, 200);
+
+
+        //放射渐变 createRadialGradient(x1,y1,radius1,x2,y2,radius2)
+        var gradient = ctx.createRadialGradient(100,100,20,100,100,50);
+        gradient.addColorStop(0,'white')
+        gradient.addColorStop(1,'blue')
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 200, 200);
+
+    </script>
+</body>
+</html>

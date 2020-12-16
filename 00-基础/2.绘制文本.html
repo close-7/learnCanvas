@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas绘制文本</title>
+    <style>
+        canvas {
+    border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+    <canvas id="drawing" width="200" height="200">a drawing of something</canvas>
+
+    <script>
+        //获取canvas对象
+        var drawing = document.getElementById('drawing')
+        //检查getContext方法是否存在
+        if(!drawing.getContext){};
+
+        //2D上下文
+        var ctx = drawing.getContext("2d")
+        //绘制文本
+        // fillText(text, x, y [, maxWidth])
+        // strokeText(text, x, y [, maxWidth])
+        //     接收4个参数1.要绘制的文本字符串2.x坐标3.y坐标4.可选的最大像素宽度
+
+        // 给文本添加样式
+        // font = value 当前我们用来绘制文本的样式。这个字符串使用和 CSS font 属性相同的语法。 默认的字体是 10px sans-serif。
+
+        // textAlign = value 文本对齐选项。 可选的值包括：start, end, left, right or center。 默认值是 start。
+
+        // textBaseline = value 基线对齐选项，可选的值包括：top, hanging, middle, alphabetic, ideographic, bottom。默认值是 alphabetic。。
+
+        // direction = value 文本方向。可能的值包括：ltr, rtl, inherit。默认值是 inherit。
+
+        
+        //绘制一个时钟
+
+        //开始路径
+        ctx.beginPath();
+        ctx.arc(100,100,99,0,2*Math.PI,false);
+
+        ctx.moveTo(194,100);
+        ctx.arc(100,100,94,0,2*Math.PI,false);
+
+        ctx.moveTo(100,100)
+        ctx.lineTo(100,15)
+
+        ctx.moveTo(100,100)
+        ctx.lineTo(35,100)
+
+        ctx.font = "bold 14px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseLine = "middle";
+        ctx.fillText("12",100,20)
+
+        ctx.textAlign="start";
+        ctx.fillText("12",100,40);
+
+        ctx.textAlign="end";
+        ctx.fillText("12",100,60)
+
+        
+
+
+                
+        ctx.stroke()
+    </script>
+</body>
+</html>
